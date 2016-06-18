@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lab Multimedia : Pràctica 4 - BreakOut</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/summary.css">
+</head>
+
+<body>
+
+
+<div id="logPane">logPane</div>
+<div id="statusPane">
+    <input type="button" id="btnReset" value="Reset">
+    <input type="button" id="btnStats" value="Stats">
+    <div id="statusPane-content"></div>
+
+</div>
+
+<!-- The Modal -->
+<div id="loginJugador" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="game-title">BREAK OUT</div>
+        <div id="assignatura-title">Laboratori Multimèdia</div>
+        <div id="authors">2016 Santi & Victoria</div>
+        <div id="pantallaIniciData">
+
+            <p>Escriu el teu nom:</p>
+            <input type="text" id="txtJugador" value="" title="nom del jugador" size="8" maxlength="8">
+            <div id="loginError">&nbsp;</div>
+
+            <p>Instruccions</p>
+            <ul>
+                <li>Fes servir les tecles de fletxa esquerra i dreta per moure la raqueta</li>
+                <li>Fletxa cap amunt o espai per llençar la pilota.</li>
+            </ul>
+            <p>Bonus</p>
+            <ul>
+                <li>Bola extra, apareix una nova bola.</li>
+                <li>Vida extra, incrementa el número d'intents (màxim 10)</li>
+                <li>Moneda, incrementa la puntuació</li>
+                <li>Bola gegant, augmenta la mida de totes les boles</li>
+                <li>SuperRaqueta, incrementa la velocitat de la bola</li>
+                <li>Vigila amb la reacció en cadena!!!</li>
+            </ul>
+
+            <div id="pantallaIniciButtons">
+                <input type="button" id="btnJugar" value="Acceptar">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="principal">
+
+    <div style="display:none;">
+        <img id="cor" src="imatges/cor.png" width="32" height="32">
+        <img id="moneda" src="imatges/moneda.png" width="32" height="32">
+        <img id="pilota" src="imatges/ball.png" width="32" height="32">
+        <img id="pizza" src="imatges/pizza.png" width="32" height="32">
+        <img id="raqueta" src="imatges/flash.png" width="32" height="32">
+        <img id="atomic" src="imatges/atom.png" width="32" height="32">
+
+
+        <div id="totxos"></div>
+        <input type="button" id="btnNovaPartida" value="Jugar">
+        <input type="button" id="sortir" value="Sortir">
+    </div>
+
+    <div id="audioPane">
+        <img id="imatgeSo" src="imatges/audioOff.png" alt="audio apagat" width="48px">
+    </div>
+
+    <div id="marcador">
+
+    <div id="leftContainer" class="container">
+
+        <div id="nivellContainer">
+            <div id="nivellLabel">Nivell</div>
+            <div id="nivell">0</div>
+        </div>
+        <div id="levelButtons" class="container">
+            <input type="button" id="btnLevelUp" value="+">
+            <input type="button" id="btnLevelDown" value="-">
+        </div>
+    </div>
+    <div id="centerContainer" class="container">
+        <div id="jugadorContainer" class="container">
+            <div id="jugador">nom</div>
+
+            <input type="button" id="btnCanviar" value="Canviar">
+            <input type="button" id="btnPausa" value="Pausa">
+            <input type="button" id="btnResume" value="Continua" >
+        </div>
+        <div id="dataGameContainer" class="container" >
+            <div id="puntuacioContainer" class="container">
+                <div id="puntuacioLabel" class="label">Punts</div>
+                <div id="puntuacio">0</div>
+            </div>
+
+            <div id="videsContainer" class="container">
+                <div id="videsLabel" class="label"></div>
+                <div id="vides">
+                    <div class="vida"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="rightContainer" class="container">
+        Millors
+        <div id="ranking">
+            <table id="ranking-table">
+                <tr>
+                    <td><div id="record-number-1"></div></td>
+                    <td><div id="record-name-1"></div></td>
+                    <td><div id="record-value-1" class="record-value"></div></td>
+                </tr>
+                <tr>
+                    <td><div id="record-number-2"></div></td>
+                    <td><div id="record-name-2"></div></td>
+                    <td><div id="record-value-2" class="record-value"></div></td>
+                </tr>
+                <tr>
+                    <td><div id="record-number-3"></div></td>
+                    <td><div id="record-name-3"></div></td>
+                    <td><div id="record-value-3" class="record-value"></div></td>
+                </tr>
+            </table>
+        </div>
+        <div id="deltaTemps"></div>
+    </div>
+</div>
+
+
+    <div id="summaryContainer" class="modal">
+        <div id="summaryData" class="modal-content">
+            <table id="summary-table">
+                <caption>Ranking</caption>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>Posició</td>
+                    <td>Jugador</td>
+                    <td>Punts</td>
+                    <td>Data</td>
+                </tr>
+                <tr>
+                    <td><div id="summary-icon-1"><img src="imatges/or.png"></div></td>
+                    <td><div id="summary-number-1">1</div></td>
+                    <td><div id="summary-name-1">Jugador 1</div></td>
+                    <td><div id="summary-value-1" class="record-value">10.000.000</div></td>
+                    <td><div id="summary-data-1">22/05/2016 17:14</div></td>
+                </tr>
+                <tr>
+                    <td><div id="summary-icon-2"><img src="imatges/plata.png"></div></td>
+                    <td><div id="summary-number-2">2</div></td>
+                    <td><div id="summary-name-2">Jugador2</div></td>
+                    <td><div id="summary-value-2" class="record-value">50.000</div></td>
+                    <td><div id="summary-data-2">28/02/2016 06:55</div></td>
+                </tr>
+                <tr>
+                    <td><div id="summary-icon-3"><img src="imatges/bronze.png"></div></td>
+                    <td><div id="summary-number-3">3</div></td>
+                    <td><div id="summary-name-3">Jugador 3</div></td>
+                    <td><div id="summary-value-3" class="record-value">33.000</div></td>
+                    <td><div id="summary-data-3">01/03/2016 12:31</div></td>
+                </tr>
+            </table>
+
+            <div id="summaryButtons">
+                <input type="button" id="btnSummaryClose" value="Tancar">
+                <input type="button" id="btnSeguent" value="Següent">
+            </div>
+        </div>
+    </div>
+
+
+    <div id="gameOverContainer" class="modal">
+        <div id="gameOverData" class="modal-content">
+
+            <br/>
+
+            <div class="game-title">GAME OVER</div>
+            <p>Programat:
+            <ul><li>Santi Herranz</li><li>Victoria Rodriguez</li></ul>
+            </p>
+            <p>Provadors:
+            <ul><li>Martina</li><li>Victor</li><li>Mar</li><li>Ignasi</li></ul>
+            </p>
+            <p class="game-title">Gràcies a tots!!! </p>
+
+            <div id="gameOverButtons">
+                <input type="button" id="btnTornarJugar" value="Tornar a jugar">
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+<div id="joc">
+    <canvas id="game"></canvas>
+</div>
+
+
+
+<script src="js/jquery-2.2.3.js"></script>
+<script src="js/utilitats.js" defer></script>
+<script src="js/breakout.js" defer></script>
+<script src="js/game.js" defer></script>
+<script src="js/pilota.js" defer></script>
+<script src="js/nivells.js" defer></script>
+<script src="js/bonus.js" defer></script>
+
+<!--
+audio_bonus_raqueta
+bola_extra_perduda
+-->
+
+<audio id="audio_bonus_moneda" preload="auto">
+    <source src="audio/bonus_moneda.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<!-- THIS GOES JUST ABOVE THE CLOSING BODY TAG AT THE BOTTOM OF YOUR PAGE: -->
+<audio id="audio_bonus_vida" preload="auto">
+    <source src="audio/bonus_vida.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_bonus_raqueta" preload="auto">
+    <source src="audio/bonus_raqueta.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_bonus_gegant" preload="auto">
+    <source src="audio/bonus_gegant.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_bonus_atomic" preload="auto">
+    <source src="audio/bonus_atomic.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_raqueta" preload="auto">
+    <source src="audio/raqueta.mp3" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_bola_perduda" preload="auto">
+    <source src="audio/bola_perduda.aac" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_nou_bonus" preload="auto">
+    <source src="audio/nou_bonus.aac" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_error_raqueta" preload="auto">
+    <source src="audio/error_raqueta.aac" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_nivell_completat" preload="auto">
+    <source src="audio/nivell_completat.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_ultima_vida" preload="auto">
+    <source src="audio/ultima_vida.mp3" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_joc_perdut" preload="auto">
+    <source src="audio/joc_perdut.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_joc_terminat" preload="auto">
+    <source src="audio/joc_terminat.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_nou_record" preload="auto">
+    <source src="audio/joc_guanyat.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="audio_joc_guanyat" preload="auto">
+    <source src="audio/joc_guanyat.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+
+
+</body>
+</html>
+

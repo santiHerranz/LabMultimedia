@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Lab Multimedia : Pràctica 3 - Desenredar</title>
+    <!-- Our CSS stylesheet file -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" />
+    <link rel="stylesheet" href="css/jquery.countdown.css" />
+    <link rel="stylesheet" href="css/estils.css" />
+
+</head>
+<body>
+<div id="joc">
+
+    <input id="btnInici" type="button" value="Iniciar">
+    <br/>
+    <br/>
+    <div id="countdown"></div>
+    <table style="width: 100%;"><tr>
+        <td><p>Nivell <span id="nivell">0</span><br/>Solucionat:<span id="progress">0</span>%</p></td>
+        <td style="text-align: right;"><p id="record"></p></td>
+    </tr>
+    </table>
+
+    <canvas id="canvas" width="800" height="400">
+        Em sap greu, el teu navegador no disposa de l'element HTML5 canvas.
+    </canvas>
+
+    <br/>
+    <img id="imatgeSo" src="imatges/audioOff.png" alt="audio apagat">
+
+</div>
+<script src="js/jquery-2.2.3.js"></script>
+<script src="js/jquery.countdown.js"></script>
+<script src="js/script.js"></script>
+
+<!-- THIS GOES JUST ABOVE THE CLOSING BODY TAG AT THE BOTTOM OF YOUR PAGE: -->
+<audio id="soAmbient" preload="auto">
+    <source src="audio/soAmbient.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="levelUp" preload="auto">
+    <source src="audio/levelUp.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="gameOver" preload="auto">
+    <source src="audio/gameOver.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="gameRecord" preload="auto">
+    <source src="audio/gameRecord.mp3" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+
+</body>
+</html>

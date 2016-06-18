@@ -1,0 +1,248 @@
+
+*
+{
+    border:1px solid white;
+    font-family: "Verdana", "Arial Narrow" ;
+    border: 1px solid black;
+}
+
+.game-title {
+    font-size: 24pt;
+}
+
+#assignatura-title{
+    font-size: 18pt;
+}
+#authors{
+    font-size: 14pt;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10;  /* Sit on top */
+    padding-top: 150px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+/* Modal Content */
+.modal-content {
+    border-radius: 15px;
+    background: rgba(230, 238, 7, 0.8);
+    margin: auto;
+    border: 1px solid rgba(251, 223, 9, 0.9);
+    width: 550px;
+    height: 500px;
+    padding: 5px;
+}
+.modal-content *{
+    text-align: center;
+}
+#audioPane {
+    position: absolute; /* Stay in place */
+    right:0px;
+    z-index: 1;
+    float: right;
+}
+
+
+#loginJugador ul{
+}
+#loginJugador li{
+    font-size: 14px;
+    text-align: left;
+}
+#pantallaIniciData {
+    /*border: 1px solid black;  */
+    margin: 0 auto;
+    width: 500px;
+    font-size: 12pt;
+    padding: 5px;
+}
+#pantallaIniciButtons {
+    /*border: 1px solid black;  */
+    margin: 0 auto;
+    width: 300px;
+}
+#txtJugador {
+    width: 200px;
+    font-size: 16pt;
+    margin: 0px;
+    text-align: left;
+}
+#loginError {
+    font-size: 8pt;
+    color: red;
+}
+#btnJugar, #btnTornarJugar {
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 18pt;
+}
+
+
+
+
+
+
+
+#principal{
+    width: 960px;
+    margin: 0 auto;
+}
+#joc{
+    position:relative;
+    z-index: 2;  /* Sit on top */
+}
+#game {
+    display: block;
+    background-color: #eee;  /* color gris clar  */
+    border: #666 30px solid;
+    border-bottom-width: 0;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+#btnSeguent, #btnSummaryClose {
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 24pt;
+}
+
+
+
+
+
+
+#btnPausa, #btnResume, #btnCanviar {
+    margin: 0 auto;
+    font-size: 14pt;
+}
+
+#btnCanviar, #btnReset, #btnStats {
+    font-size: 10pt;
+}
+
+#marcador {
+    display: block;
+    border-radius: 25px;
+    background: #73AD21;
+    margin: 0 auto;
+    width: 960px;
+    height: 120px;
+    font-family: "Verdana", "Arial Narrow" ;
+    font-size: 17pt;
+}
+#levelButtons{
+    display: block;
+}
+#btnLevelUp, #btnLevelDown {
+    width: 50px;
+    height: 30px;
+}
+.vida {
+    width: 24px;
+    height: 24px;
+    background-image: url("../imatges/cor.png");
+    background-size: 24px;
+    display: inline-block;
+    margin-top:2px;
+    margin-left:2px;
+}
+#moneda{
+    width: 24px;
+    height: 24px;
+    margin-top:2px;
+}
+
+#leftContainer, #centerContainer, #rightContainer {
+    float: left;
+    height: 100px;
+    padding: 4px;
+}
+#leftContainer, #rightContainer {
+    width: 200px;
+}
+#leftContainer{
+    text-align: center;
+}
+#centerContainer {
+    width: 50%;
+}
+
+#dataGameContainer {
+    display: block;
+    float: none;
+    height: 50px;
+}
+
+#gameOverContainer {
+    padding-top: 150px; /* Location of the box */
+}
+
+#gameOverData {
+    border: 15px solid #fbcc38;
+    padding: 10px;
+}
+#gameOverData li {
+    list-style: none;
+}
+
+#nivellLabel, #nivell, #levelButtons{
+    display: inline-block;
+    padding: 5px;
+}
+#jugador{
+    width: 250px;
+    display: inline-block;
+    padding: 5px;
+}
+#puntuacioContainer {
+    float: left;
+}
+#videsContainer{
+    float: right;
+}
+#puntuacioLabel, #puntuacio{
+    display: inline-block;
+    padding: 5px;
+}
+.container {
+    /* border: 1px solid black; */
+    margin: 4px;
+}
+.container label {
+    display: inline-block;
+}
+
+
+
+#logPane, #statusPane {
+    position: absolute;
+    border-radius: 10px;
+    background: #efefef;
+    overflow: scroll;
+    font-family: "Verdana", "Courier New";
+    line-height: 0.8em; font-size: 0.8em;
+    height: 100%;
+    width: 150px;
+
+}
+#logPane {
+    left: 0px;
+}
+#statusPane {
+    right: 0px;
+}

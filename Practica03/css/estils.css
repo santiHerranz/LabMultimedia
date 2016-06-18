@@ -1,0 +1,35 @@
+@charset "UTF-8";
+body {
+	text-align:center;
+	background-image:url(../imatges/fons.jpg);
+}
+
+#joc{
+	width: 800px;
+	margin: 0 auto;
+}
+#canvas{
+	position:relative;
+	background: #333;
+}
+
+#btnInici {
+	width: 150px;
+	font-size: 24pt;
+}
+
+#joc p, #nivell, #progress, #record {
+	font-family: Verdana;
+	font-weight: bold;
+	font-size: 17pt;
+	color: darkred  ;
+    text-shadow: 1px 1px #ffffff;
+}
+
+#nivell {
+
+}
+#progress {
+
+}
+

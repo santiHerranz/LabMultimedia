@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Pràctica 3 - Laberint</title>
+    <style>
+        canvas {
+            border: 6px double #000;
+            background: white;
+        }
+        .imatgeSeleccionada{
+            border: 4px solid #c69;
+        }
+        .imatgeNoSeleccionada{
+            border: 4px solid white;
+        }
+
+        #menu{
+            border: 0px solid black;
+            width: 100%;
+        }
+        #menuContainer_image {
+            margin: 0 auto;
+            text-align: center;
+        }
+        #imatges_per_triar{
+            text-align: center;
+        }
+        #menuContainer_start{
+            border: 0px solid black;
+            text-align: center;
+        }
+
+        #rellotge-container{
+            border: 0px solid black;
+            width: 100%;
+        }
+        #rellotge{
+            margin: 0 auto;
+        }
+        #resultat {
+            width: 100%;
+            font-family: Verdana;
+            font-size: 17pt;
+            text-align: center;
+        }
+        #b_inici {
+            font-family: Verdana;
+            font-size: 17pt;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div id="menu">
+    <div id="menuContainer_image">
+        <div id="triar_imatge">Escull una imatge</div>
+        <div id="imatges_per_triar">
+            <img id="mapa1-1" class="imatges imatgeNoSeleccionada" src="imatges/imatge1-1.gif" width="200px">
+            <img id="mapa2-1" class="imatges imatgeNoSeleccionada" src="imatges/imatge2-1.gif" width="200px">
+            <img id="mapa3-1" class="imatges imatgeNoSeleccionada" src="imatges/imatge3-1.gif" width="200px">
+        </div>
+
+        <div id="menuContainer_size">
+            <div id="menuContainer_start">
+                <input type="radio" id="mov_manual" name="mov" checked="checked"  /> <label for="mov_manual">moviment amb tecles fletxa.</label> <br />
+                <input type="radio" id="mov_auto" name="mov" /> <label for="mov_auto">moviment automàtic.</label> <br />
+                <input type="checkbox" id="cua" checked="checked" /> <label for="cua">marcant el camí recorregut.</label> <br />
+
+                <br />
+                <br />
+                * En mode manual, pots fer servir SHIFT per avançar a poc a poc.
+                <br />
+                <br />
+                <br />
+                <input id="b_inici" type="button" value="Entrar" >
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="laberint" style="display:none;">
+
+    <input id="b_tornar" type="button" value="Menu" >
+
+    <div id="rellotge-container">
+        <table id="rellotge">
+            <tr><td>
+                <img src="imatges/dg0.gif" id="mn1">
+                <img src="imatges/dg0.gif" id="mn2">
+                <img src="imatges/dgc.gif">
+                <img src="imatges/dg0.gif" id="se1">
+                <img src="imatges/dg0.gif" id="se2">
+            </td></tr>
+        </table>
+        <div id="resultat">RESULTAT</div>
+        <canvas id="canvas" style="display:block;"></canvas>
+    </div>
+
+    <span id="info1" style="display: none;"></span>
+
+</div>
+
+<div style="display:none;">
+    <img id="mapa1" src="imatges/imatge1-1.gif" width="202" height="202" >
+    <img id="mapa2" src="imatges/imatge2-1.gif" width="372" height="372" >
+    <img id="mapa3" src="imatges/imatge3-1.gif" width="542" height="542" >
+    <img id="cara" src="imatges/smile.png" width="15" height="15">
+</div>
+
+<script src="js/jquery-2.2.3.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LAB MULTIMEDIA - PRÀCTICA 1</title>
+    <style>
+
+        .primerPla{
+            z-index:100;
+        }
+        .segonPla{
+            z-index:10;
+        }
+        .peçaSeleccionada{
+            border: white 2px solid;
+        }
+        .peçaNoSeleccionada{
+            border: 0px;
+        }
+        .imatgeSeleccionada{
+            border: 4px solid #c69;
+        }
+        .imatgeNoSeleccionada{
+            border: 4px solid white;
+        }
+
+
+        #menu{
+            margin: 0 auto;
+            position: relative;
+        }
+        #triar_imatge {
+            text-align:center;
+            font-family: "Arial", normal; font-size: 1.2em;
+        }
+        #menuContainer_image {
+            margin: 0 auto;
+        }
+        #imatges_per_triar {
+            margin: 0 auto;
+            width: 1000px;
+        }
+        .imatges {
+            margin: 18px;
+            zIndex: 100;
+        }
+
+        #menuContainer_size {
+            margin: 0 auto;
+            width: 400px;
+        }
+        #menuContainer_start{
+            margin: 0 auto;
+            width: 200px;
+        }
+        #slider_f_value, #slider_c_value, #slider_f, #slider_c {
+            width: 250px;
+            font-family: "Arial", normal; font-size: 1.2em;
+        }
+
+
+
+
+        #puzzle{
+            margin: 0 auto;
+            border: 8px solid #c69;
+            position: relative; /* per definir els eixos de coordenades */
+        }
+        .peça {
+            padding: 0;
+            margin: 0;
+            background-repeat: no-repeat;
+            position: absolute; /* per poder moure les peces */
+        }
+
+        #wincontainer {
+            position: absolute;
+            z-index:1000;
+            width:400px;
+            height: 200px;
+            top:200px;
+            left: 300px;
+        }
+        #felicitacio{
+            font-family: "Comic Sans MS", cursive; font-size: 2em;
+            text-align:center;
+            color: #00F;
+            border-radius: 30px;
+            background-color:#CF3;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            opacity: 0.5;
+        }
+
+        #b_tornar {
+            margin: 0 auto;
+            position: relative;
+            left: 100px;
+            top:-50px;
+            opacity: 1;
+            z-index:2000;
+        }
+
+        #b_inici, #b_tornar {
+            font-family: "Arial", normal; font-size: 1.2em;
+            width: 200px;
+
+        }
+    </style>
+
+</head>
+<body>
+
+
+<div id="menu">
+
+    <div id="menuContainer_image">
+    <div id="triar_imatge">Escull una imatge</div>
+        <div id="imatges_per_triar">
+            <img id="imatge1" class="imatges imatgeNoSeleccionada" src="imatges/imatge1.jpg" width="200px">
+            <img id="imatge2" class="imatges imatgeNoSeleccionada" src="imatges/imatge2.jpg" width="200px">
+            <img id="imatge3" class="imatges imatgeNoSeleccionada" src="imatges/imatge3.jpg" width="200px">
+            <img id="imatge4" class="imatges imatgeNoSeleccionada" src="imatges/imatge4.jpg" width="200px">
+        </div>
+
+        <div id="menuContainer_size">
+            <div id="menuContainer_size_rows">
+                <div id="slider_f_value">Files = 0</div><input id="slider_f" type="range" min="2" max="10" />
+            </div>
+            <div id="menuContainer_size_cols">
+                <div id="slider_c_value">Columnes = 0</div><input id="slider_c" type="range" min="2" max="10" />
+            </div>
+            <div id="menuContainer_start">
+                <input id="b_inici" type="button" value="Resol el puzzle" >
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="puzzle" style="display:none;">
+    <div id="wincontainer" style="display:none;">
+        <div id="felicitacio">
+            <h1>Felicitats!!</h1>
+        </div>
+        <input id="b_tornar" type="button" value="Tornar a jugar" >
+    </div>
+</div>
+<div id="imatges" style="display: none;">
+    <img id="solucio" src="imatges/imatge4.jpg" width="1000" height="667" />
+</div>
+
+<script src="js/jquery-2.2.3.js"></script>
+<script src="js/puzzle.js" type="text/javascript"></script>
+
+
+<!-- THIS GOES JUST ABOVE THE CLOSING BODY TAG AT THE BOTTOM OF YOUR PAGE: -->
+<audio id="jumping" preload="auto">
+    <source src="audio/jumping.wav" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="clap" preload="auto">
+    <source src="audio/clap.mp3" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+<audio id="tada" preload="auto">
+    <source src="audio/tada.mp3" />
+    This browser does not support the HTML5 audio tag.
+</audio>
+
+</body>
+</html>
